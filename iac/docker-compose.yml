@@ -1,0 +1,22 @@
+services:
+  backend:
+    build:
+      context: ..
+      dockerfile: iac/Dockerfile.backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../backend/database:/app/database
+    environment:
+      - OLLAMA_HOST=host.docker.internal
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ..
+      dockerfile: iac/Dockerfile.frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped

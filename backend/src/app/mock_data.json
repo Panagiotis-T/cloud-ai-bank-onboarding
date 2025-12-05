@@ -1,0 +1,70 @@
+{
+  "DK": {
+    "1304802151": {
+      "firstName": "Donald",
+      "lastName": "Duck",
+      "dateOfBirth": "2020-02-02",
+      "gender": "Male",
+      "address": "Tokkerupvej 35, 2730 Herlev",
+      "maritalStatus": "Single",
+      "citizenship": ["Denmark"],
+      "residencePermitNumber": false
+    },
+    "0101901234": {
+      "firstName": "McDonald",
+      "lastName": "McNugget",
+      "dateOfBirth": "1990-01-01",
+      "gender": "Male",
+      "address": "Examplegade 1, 1000 Copenhagen",
+      "maritalStatus": "Single",
+      "citizenship": ["USA"],
+      "residencePermitNumber": "RP987654"
+    },
+    "248745996": {
+      "firstName": "Ted",
+      "lastName": "Baker",
+      "dateOfBirth": "1992-03-03",
+      "gender": "Male",
+      "address": "Hellogade 1, 2000 Copenhagen",
+      "maritalStatus": "Single",
+      "citizenship": ["Denmark"],
+      "residencePermitNumber": false
+    }
+  },
+  "SE": {
+    "199001011234": {
+      "firstName": "Lora",
+      "lastName": "Andersson",
+      "dateOfBirth": "1990-01-01",
+      "gender": "Female",
+      "address": "Storgatan 12, Stockholm",
+      "maritalStatus": "Married",
+      "citizenship": ["Sweden"],
+      "residencePermitNumber": false
+    }
+  },
+  "NO": {
+    "05029012345": {
+      "firstName": "Ole",
+      "lastName": "Olsen",
+      "dateOfBirth": "1990-02-05",
+      "gender": "Male",
+      "address": "Karl Johans Gate 1, Oslo",
+      "maritalStatus": "Single",
+      "citizenship": ["Norway"],
+      "residencePermitNumber": false
+    }
+  },
+  "FI": {
+    "020589A000X": {
+      "firstName": "Matti",
+      "lastName": "Virtanen",
+      "dateOfBirth": "1989-05-02",
+      "gender": "Male",
+      "address": "Mannerheimintie 1, Helsinki",
+      "maritalStatus": "Single",
+      "citizenship": ["Finland"],
+      "residencePermitNumber": false
+    }
+  }
+}

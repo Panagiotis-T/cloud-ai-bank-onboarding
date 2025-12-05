@@ -1,0 +1,35 @@
+# Use Python 3.11 slim image
+FROM python:3.11-slim
+
+# Set working directory inside container
+WORKDIR /app
+
+# Install system dependencies needed for PDF processing and compilation
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy dependency files first (for Docker layer caching)
+COPY backend/pyproject.toml ./pyproject.toml
+
+# Copy application code for installation
+COPY backend/src/ ./src/
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -e .
+
+# Copy docs for ingestion
+COPY docs/ ./docs/
+
+# Create database directory for FAISS/SQLite
+RUN mkdir -p database
+
+# # Run data ingestion to build vector store
+# RUN python -m app.data_ingestion
+
+# Expose port 8000 for FastAPI
+EXPOSE 8000
+
+# Start FastAPI server
+CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000"]

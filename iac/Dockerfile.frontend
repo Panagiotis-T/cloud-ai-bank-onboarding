@@ -1,0 +1,34 @@
+# Multi-stage Dockerfile for frontend React app
+
+# Build stage
+FROM node:18-alpine AS build
+
+# Set the working folder inside the container
+WORKDIR /app
+
+# Copy package.json and package-lock.json so we can install dependencies
+COPY ../frontend/package*.json ./
+
+# Install all npm dependencies
+RUN npm ci
+
+# Copy source code into the container
+COPY ../frontend/ .
+
+# Build the app
+RUN npm run build
+
+# Serve the built files using Nginx
+FROM nginx:alpine
+
+# Copy the built files from the previous step into Nginx's public folder
+COPY --from=build /app/dist /usr/share/nginx/html
+
+# Copy static images
+COPY --from=build /app/images /usr/share/nginx/html/images
+
+# Expose port 80 so the container can serve the site
+EXPOSE 80
+
+# Start Nginx and keep it running in the foreground
+CMD ["nginx", "-g", "daemon off;"]
